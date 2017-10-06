@@ -66,9 +66,15 @@ Attractor.prototype.update = function(movers){
   if(this.loc.y >= window.innerHeight - this.len || this.loc.y <= this.len){
      this.vel.y *= -1;
   }
-  for(i = 0; i < movers.length -1; i++){
-  if(this.loc.x + 10 <= || this.locx - 10 >= )
+  for(i = 0; i < 99; i++){
+  if(this.loc.x + 5 <= movers[i].loc.x || this.loc.x - 5 >= movers[i].loc.x){
+    movers[i].loc.add(new JSVector(-10,-10));
+  }
+  if(this.loc.x + 5 <= movers[i].loc.y || this.loc.x - 5 >= movers[i].loc.y){
+    movers[i].loc.add(new JSVector(10,10));
+  }
 }
+
   this.render();
 }
 

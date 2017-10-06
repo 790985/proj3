@@ -14,9 +14,8 @@ function init(){
   ctx = canvas.getContext('2d');
 
   console.log("canvas: "+ canvas.width + ", "+ canvas.height);
-  loadMovers(10);
+  loadMovers(100);
   loadAttractor();
-  loadRepeller();
   animate();
 }
 
@@ -26,8 +25,8 @@ function animate(){
   for(var i=0; i<movers.length; i++){
     movers[i].update();
   }
-  attractor.update();
-  repeller.update();
+  attractor.update(movers);
+  repeller.update(movers);
 
 
 }
